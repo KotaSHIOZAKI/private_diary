@@ -19,15 +19,18 @@
                 {% for field in form %}
                 <div class="form-group row">
                     <label for="{{ field.id_for_label }}" class="col-sm-4 col-form-label">
+                        <!-- ラベル -->
                         <strong>{{ field.label_tag }}</strong>
                     </label>
                     <div class="col-sm-8">
+                        <!-- フィールド -->
                         {{ field }}
                         {{ field.errors }}
                     </div>
                 </div>
                 {% endfor %}
-
+                
+                <!-- 送信ボタン -->
                 <div class="offset-sm-4 col-sm-8">
                     <button class="btn btn-primary" type="submit">送信</button>
                 </div>
