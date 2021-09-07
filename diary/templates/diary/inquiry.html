@@ -2,7 +2,7 @@
 
 {% load static %}
 
-{% block title %}お問い合わせ | Private Diary{% endblock %}
+{% block title %}お問い合わせ{% endblock %}
 
 {% block active_inquiry %}active{% endblock %}
 
@@ -12,7 +12,7 @@
         <div class="my-div-style">
             <form method="post">
                 {% csrf_token %}
-                
+
                 <!-- エラーの取得 -->
                 {{ form.non_field_errors }}
 
@@ -29,7 +29,7 @@
                     </div>
                 </div>
                 {% endfor %}
-                
+
                 <!-- 送信ボタン -->
                 <div class="offset-sm-4 col-sm-8">
                     <button class="btn btn-primary" type="submit">送信</button>
