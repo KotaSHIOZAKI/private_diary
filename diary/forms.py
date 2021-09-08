@@ -35,6 +35,7 @@ class InquiryForm(forms.Form):
         from_email = 'admin@example.com'
         #from_email = 'ksw2070042@stu.o-hara.ac.jp'
         to_list = [
+            #複数人対応のため、配列形式になっている。
             'test@example.com'
         ]
         cc_list = [
@@ -42,6 +43,6 @@ class InquiryForm(forms.Form):
         ]
 
         #EmailMessageインスタンスの生成
-        message = EmailMessage(subject=subject, body=message, from_email=from_email, to=to_list, cc=cc_list)
+        finalMessage = EmailMessage(subject=subject, body=message, from_email=from_email, to=to_list, cc=cc_list)
         #メッセージ送信
-        message.send()
+        finalMessage.send()

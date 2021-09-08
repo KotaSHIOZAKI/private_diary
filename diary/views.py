@@ -3,8 +3,6 @@ from diary.forms import InquiryForm
 from django.shortcuts import render
 from django.views import generic
 
-from .forms import InquiryForm
-
 import logging
 from django.urls import reverse_lazy
 
