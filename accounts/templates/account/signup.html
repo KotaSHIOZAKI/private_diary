@@ -1,7 +1,5 @@
 {% extends "account/base.html" %}
 
-{% load i18n %}
-
 {% block title %}サインアップ{% endblock %}
 
 {% block active_signup %}active{% endblock %}
@@ -11,8 +9,6 @@
   <div class="row">
     <div class="my-div-style">
       <h1>サインアップ</h1>
-
-      <p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
 
       <form method="post" action="{% url 'account_signup' %}">
         {% csrf_token %}
