@@ -175,3 +175,7 @@ ACCOUNT_EMAIL_SUBJECT_PREFIX = ''
 
 #デフォルトのメール送信元を設定
 DEFAULT_FROM_EMAIL = 'admin@example.com'
+
+#画像配信用
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
