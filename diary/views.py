@@ -42,7 +42,8 @@ class InquiryView(generic.FormView):
 #日記一覧表示
 class DiaryListView(LoginRequiredMixin, generic.ListView):
     model = Diary
-    template_name = 'diary_list.html'
+    template_name = 'diary/diary_list.html'
+    paginate_by = 2
 
     def get_queryset(self):
         diaries = Diary.objects.filter(user=self.request.user).order_by('-created_at') #マイナス＝昇順
