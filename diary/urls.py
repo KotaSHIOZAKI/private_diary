@@ -14,4 +14,7 @@ urlpatterns = [
     
     #日記詳細表示
     path('diary-detail/<int:pk>/', views.DiaryDetailView.as_view(), name="diary_detail"),
+
+    #日記作成機能
+    path('diary-create/', views.DiaryCreateView.as_view(), name="diary_create"),
 ]
