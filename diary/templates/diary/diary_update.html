@@ -2,7 +2,9 @@
 
 {% load static %}
 
-{% block title %}日記一覧{% endblock %}
+{% block title %}日記編集{% endblock %}
+
+{% block active_diary_list %}active{% endblock %}
 
 {% block head %}
 <link rel="stylesheet" href="{% static 'css/clean-blog.min.css' %}">
@@ -10,9 +12,20 @@
 
 {% block contents %}
 <div class="container">
-    <div class="row">
-        <div class="my-div-style w-100">
-            A
+    <div class="my-div-style w-100">
+        <div class="row">
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                <table class="table">
+                    {{ form.as_table }}
+                </table>
+
+                <button class="btn btn-primary" type="submit">更新</button>
+                <a href="{% url 'diary:diary_detail' object.pk %}" class="btn btn-secondary ml-2">
+                    キャンセル
+                </a>
+            </form>
         </div>
     </div>
 </div>
