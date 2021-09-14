@@ -7,9 +7,12 @@ import logging
 from django.urls import reverse_lazy
 #メッセージ取得用
 from django.contrib import messages
+
 #日記一覧用
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Diary
+#日記作成用（CRUDのC）
+from diary.forms import DiaryCreateForm
 
 #ロガーの取得
 logger = logging.getLogger(__name__)
@@ -56,3 +59,17 @@ class DiaryDetailView(LoginRequiredMixin, generic.DetailView):
 class DiaryCreateView(LoginRequiredMixin, generic.CreateView):
     model = Diary
     template_name = 'diary/diary_create.html'
+    form_class = DiaryCreateForm
+    success_url = reverse_lazy('diary:diary_list')
+
+    def form_valid(self, form):
+        diary = form.save(commit=False) #データに不足がある場合
+        diary.user = self.request.user  #ログインしているユーザーのモデルオブジェクトをセット
+        diary.save() #保存
+        messages.success(self.request, '日記を作成しました。')
+        return super().form_valid(form)
+
+    def form_invalid(self, form):
+        #失敗したときに実行
+        messages.error(self.request, '日記の作成に失敗しました。')
+        return super().form_invalid(form)
