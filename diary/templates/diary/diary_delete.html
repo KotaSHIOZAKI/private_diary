@@ -2,7 +2,7 @@
 
 {% load static %}
 
-{% block title %}日記一覧{% endblock %}
+{% block title %}日記削除{% endblock %}
 
 {% block active_diary_list %}active{% endblock %}
 
@@ -14,7 +14,7 @@
 <div class="container">
     <div class="my-div-style w-100">
         <div class="row">
-            <form methods="POST">
+            <form method="POST">
                 {% csrf_token %}
                 <p>本当に削除しますか？</p>
                 <button class="btn btn-primary mt-5" type="submit">削除</button>
