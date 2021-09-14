@@ -20,4 +20,7 @@ urlpatterns = [
 
     #日記編集機能
     path('diary-update/<int:pk>/', views.DiaryUpdateView.as_view(), name="diary_update"),
+
+    #日記削除機能
+    path('diary-delete/<int:pk>/', views.DiaryDeleteView.as_view(), name="diary_delete"),
 ]
